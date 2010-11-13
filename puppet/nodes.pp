@@ -2,13 +2,14 @@
 ##############################################################
 # @filename : nodes.pp
 # @created : Mon, 07 Jun 2010 16:16:01 +1000
-# @last changed: Sat 13 Nov 2010 21:39:45 EST
+# @last changed: Sat 13 Nov 2010 21:41:16 EST
 # @author : Mick Pollard <aussielunix@gmail.com>
 ##############################################################
 #
 # default node to be used by all
 node "default" {
   $mailserver_dest_hosts = "localhost"
+  $mailserver_networks = "localhost"
 
   include motd
   include root_mail
