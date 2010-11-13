@@ -2,7 +2,7 @@
 ##############################################################
 # @filename : nodes.pp
 # @created : Mon, 07 Jun 2010 16:16:01 +1000
-# @last changed: Sat 13 Nov 2010 18:26:34 EST
+# @last changed: Sat 13 Nov 2010 19:26:19 EST
 # @author : Mick Pollard <aussielunix@gmail.com>
 ##############################################################
 #
@@ -26,6 +26,7 @@ node "default" {
   }
 
   realize(Group['devop'])
+  realize(Group['deploy'])
   realize(Ssh_user['deploy'])
   realize(Ssh_user['lunix'])  
 }
