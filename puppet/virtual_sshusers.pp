@@ -2,7 +2,7 @@
 ##############################################################
 # @filename : virtual_sshusers.pp
 # @created : Mon, 07 Jun 2010 16:16:01 +1000
-# @last changed: Sat 13 Nov 2010 12:19:12 EST
+# @last changed: Sat 13 Nov 2010 18:25:25 EST
 # @author : Mick Pollard <aussielunix@gmail.com>
 ##############################################################
 #
@@ -13,29 +13,28 @@
 
 import 'sshusers'
 
-  @group { "sysads": gid => 5000 }
-  @group { "developers": gid => 5001 }
-  @group { "admin": gid => 109 }
+  @group { "deploy": gid => 5000 }
+  @group { "devop": gid => 5001 }
 
 
   @ssh_user { "lunix":
     comment => "Mick Pollard",
     uid     => 5001,
-    group   => 'sysads',
-    groups  => 'admin',
+    group   => 'devop',
+    groups  => 'sudo',
     mail    => 'mick@example.com.au'
   }
   @ssh_user { "dave":
     comment => "dave smith",
     uid     => 5002,
-    group   => 'developers',
-    groups  => 'admin',
+    group   => 'devop',
+    groups  => 'sudo',
     mail    => 'dave@example.com.au'
   }
-  @ssh_user { "deployment":
+  @ssh_user { "deploy":
     comment => "application deployment user",
     uid     => 5003,
-    group   => 'developers',
-    groups  => 'admin',
+    group   => 'deploy',
+    groups  => 'sudo',
     mail    => 'deployment@example.com.au'
   }

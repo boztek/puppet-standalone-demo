@@ -2,7 +2,7 @@
 ##############################################################
 # @filename : nodes.pp
 # @created : Mon, 07 Jun 2010 16:16:01 +1000
-# @last changed: Sat 13 Nov 2010 17:45:49 EST
+# @last changed: Sat 13 Nov 2010 18:26:34 EST
 # @author : Mick Pollard <aussielunix@gmail.com>
 ##############################################################
 #
@@ -25,8 +25,7 @@ node "default" {
    ensure => "absent",
   }
 
-  realize(Group['sysads'])
-  realize(Group['developers'])
-  realize(Ssh_user['deployment'])
+  realize(Group['devop'])
+  realize(Ssh_user['deploy'])
   realize(Ssh_user['lunix'])  
 }
