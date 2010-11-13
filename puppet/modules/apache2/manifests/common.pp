@@ -2,7 +2,7 @@
 ##############################################################
 # @filename : common.pp
 # @created : Thu, 28 Oct 2010 14:54:55 +1100
-# @last changed: Sat 13 Nov 2010 12:20:17 EST
+# @last changed: Sat 13 Nov 2010 19:37:12 EST
 # @author : Mick Pollard <aussielunix@gmail.com>
 ##############################################################
 #
@@ -23,7 +23,7 @@ class apache2::common {
 
   exec { "reload-apache2":
     command => "/etc/init.d/apache2 reload",
-    onlyif => "/usr/sbin/apachectl -t",
+    onlyif => "/usr/sbin/apache2ctl -t",
     require => Service["apache2"],
     refreshonly => true,
   }
