@@ -1,5 +1,7 @@
 ## puppet-standalone-demo
 
+**NOT COMPLETE YET**
+
 In here you will find a basic collection of puppet manifests and modules, a capistrano script and
 some cucumber-nagios tests.
 
