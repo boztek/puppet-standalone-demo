@@ -2,7 +2,7 @@
 ##############################################################
 # @filename : nodes.pp
 # @created : Mon, 07 Jun 2010 16:16:01 +1000
-# @last changed: Sat 13 Nov 2010 14:04:00 EST
+# @last changed: Sat 13 Nov 2010 14:38:13 EST
 # @author : Mick Pollard <aussielunix@gmail.com>
 ##############################################################
 #
@@ -19,6 +19,10 @@ node "default" {
   apache2::site { "glenlivet.lunix.lan": 
    ensure => "present",
    webmaster => "webmaster@lunix.lan"
+  }
+
+  apache2::site { "default": 
+   ensure => "absent",
   }
 
   realize(Group['sysads'])

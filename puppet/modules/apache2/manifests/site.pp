@@ -1,4 +1,4 @@
-define apache2::site($ensure, $webmaster) {
+define apache2::site($ensure, $webmaster="") {
 
     case $ensure {
         present: {
@@ -16,13 +16,20 @@ define apache2::site($ensure, $webmaster) {
 				owner => "root",
 				group => "www-data",
 				ensure => directory,
+				require => Package["apache2"],
+			}
+
+			file { "/var/www/$name/index.html":
+				mode => "644",
+				owner => "mick",
+				group => "mick",
+				ensure => file,
+				content => "Welcome to $name\n",
 			}
 
 		  exec { "enable $name":
 			command => "/usr/sbin/a2ensite $name",
-			# add a onlyif vhost file exists in sites-available
-			unless => "/bin/ls /etc/apache2/sites-enabled | grep '$name'",
-			require => File["/var/www/$name"],
+			require => [ File["/etc/apache2/sites-available/$name"],File["/var/www/$name"], Package["apache2"] ],
 			notify => Service['apache2']
 		  }
         }
@@ -35,7 +42,7 @@ define apache2::site($ensure, $webmaster) {
             }
         }
         default: {
-            fail "Invalid 'ensure' value '$ensure' for apach2::vhost"
+            fail "Invalid 'ensure' value '$ensure' for apache2::site"
         }
     }
 }
