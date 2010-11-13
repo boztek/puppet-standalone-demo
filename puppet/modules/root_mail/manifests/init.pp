@@ -1,7 +1,7 @@
 ##############################################################
 # @filename : init.pp
 # @created : 12 Feb 2010 09:05:47 +1100
-# @last changed: Sat 13 Nov 2010 12:24:11 EST
+# @last changed: Sat 13 Nov 2010 20:47:47 EST
 # @author : Mick Pollard <aussielunix@gmail.com>
 ##############################################################
 #
@@ -22,7 +22,11 @@
 #	TODO: need to set a dependency of sendmail/exim/postfix
 #
 class root_mail {
-  exec { "newaliases": refreshonly => true }
+  exec { "newaliases": 
+		refreshonly => true,
+		require => Package['postfix']
+		
+	}
 
   mailalias { "rootalias":
     ensure    => present,
