@@ -1,4 +1,4 @@
-class mailserver::postfix {
+class postfix {
 
 	package { 
 		"postfix": ensure => installed;
