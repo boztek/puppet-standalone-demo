@@ -21,10 +21,10 @@ define apache2::site($ensure, $webmaster="") {
 
 			file { "/var/www/$name/index.html":
 				mode => "644",
-				owner => "deployment",
-				group => "developers",
+				owner => "deploy",
+				group => "deploy",
 				ensure => file,
-				require => User["deployment"], 
+				require => User["deploy"], 
 				content => "Welcome to $name\n",
 			}
 
