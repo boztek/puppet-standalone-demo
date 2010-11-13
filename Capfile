@@ -30,3 +30,6 @@ namespace :puppet do
 end
 
 
+desc "deploy html site to linode - Params: HOST"
+task :deploy, :hosts => host do
+end

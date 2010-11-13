@@ -10,3 +10,11 @@ correctly before deploying a site.
 I can then also test that my site is deployed.  
 
 
+    git clone git://github.com/aussielunix/puppet-standalone-demo.git
+    cd puppet-standalone-demo
+    cap  puppet:prep HOST="173.255.200.9"
+    puppet:go HOST="173.255.200.9" OPTIONS="--noop"
+    puppet:go HOST="173.255.200.9"
+
+
+
