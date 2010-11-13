@@ -20,7 +20,7 @@
 root	ALL=(ALL) ALL
 
 # Uncomment to allow people in group 'admin' to run all commands
-%admin	ALL=(ALL) NOPASSWD:ALL
+%admin	ALL=(ALL) ALL
 
 
 # Samples
