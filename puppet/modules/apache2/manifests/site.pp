@@ -20,8 +20,9 @@ define apache2::site($ensure, $webmaster) {
 
 		  exec { "enable $name":
 			command => "/usr/sbin/a2ensite $name",
-			unless => "/bin/ls /etc/apache2/sites-enabled | grep '$name'",
 			# add a onlyif vhost file exists in sites-available
+			unless => "/bin/ls /etc/apache2/sites-enabled | grep '$name'",
+			require => File["/var/www/$name"],
 			notify => Service['apache2']
 		  }
         }
