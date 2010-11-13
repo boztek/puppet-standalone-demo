@@ -24,7 +24,7 @@ define apache2::site($ensure, $webmaster="") {
 				owner => "deployment",
 				group => "developers",
 				ensure => file,
-				require => User["deployment"] 
+				require => User["deployment"], 
 				content => "Welcome to $name\n",
 			}
 
