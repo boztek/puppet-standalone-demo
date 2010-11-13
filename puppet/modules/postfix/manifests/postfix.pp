@@ -16,7 +16,7 @@ class postfix {
 		"/etc/postfix": 
 		  mode => 0755,
 		  notify => Service[postfix],
-		  source => "puppet:///postfix/etc/postfix",
+		  source  => "/opt/puppet/modules/postfix/files/etc/postfix",
 		  require => Package["postfix"];
 		  
 		  "/etc/postfix/main.cf":
