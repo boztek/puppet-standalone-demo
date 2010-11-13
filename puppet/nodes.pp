@@ -2,7 +2,7 @@
 ##############################################################
 # @filename : nodes.pp
 # @created : Mon, 07 Jun 2010 16:16:01 +1000
-# @last changed: Sat 13 Nov 2010 20:55:57 EST
+# @last changed: Sat 13 Nov 2010 20:58:31 EST
 # @author : Mick Pollard <aussielunix@gmail.com>
 ##############################################################
 #
@@ -14,7 +14,7 @@ node "default" {
   include ssh
   include sysstat
   include git
-  include mailserver::postfix
+  include postfix
   include apache2::common
 
   apache2::site { "glenlivet.lunix.lan": 
