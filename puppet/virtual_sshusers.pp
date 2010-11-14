@@ -2,7 +2,7 @@
 ##############################################################
 # @filename : virtual_sshusers.pp
 # @created : Mon, 07 Jun 2010 16:16:01 +1000
-# @last changed: Sun 14 Nov 2010 20:27:08 EST
+# @last changed: Sun 14 Nov 2010 20:41:08 EST
 # @author : Mick Pollard <aussielunix@gmail.com>
 ##############################################################
 #
@@ -22,7 +22,7 @@ import 'sshusers'
     uid     => 5001,
     group   => 'devop',
     groups  => 'sudo',
-    passwd  => '$1$vgmT9S6z$wHzZUnKjb0po7ObiPE9kz.',
+    password  => '$1$vgmT9S6z$wHzZUnKjb0po7ObiPE9kz.',
     mail    => 'mick@example.com.au'
   }
   @ssh_user { "dave":
