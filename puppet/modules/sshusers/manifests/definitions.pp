@@ -2,7 +2,7 @@
 # with no password, but an RSA/DSA key
 #
 
-define ssh_user($comment,$uid,$group,$groups="",$mail,$shell="/bin/bash") {
+define ssh_user($comment,$uid,$group,$groups="",$mail,$shell="/bin/bash",$pword) {
 
   # create the user
   user { "$name":
@@ -14,7 +14,8 @@ define ssh_user($comment,$uid,$group,$groups="",$mail,$shell="/bin/bash") {
     require    => Group[$group],
     ensure     => present,
     uid        => $uid,
-    shell      => $shell
+    shell      => $shell,
+    password   => $pword
   }
 
   # create ~/.ssh (~/ is created by User[$name])
