@@ -2,7 +2,7 @@
 ##############################################################
 # @filename : virtual_sshusers.pp
 # @created : Mon, 07 Jun 2010 16:16:01 +1000
-# @last changed: Sun 14 Nov 2010 20:41:08 EST
+# @last changed: Sun 14 Nov 2010 20:46:57 EST
 # @author : Mick Pollard <aussielunix@gmail.com>
 ##############################################################
 #
@@ -30,6 +30,7 @@ import 'sshusers'
     uid     => 5002,
     group   => 'devop',
     groups  => 'sudo',
+    password  => '$1$vgmT9S6z$wHzZUnKjb0po7ObiPE9kz.',
     mail    => 'dave@example.com.au'
   }
   @ssh_user { "deploy":
@@ -37,5 +38,6 @@ import 'sshusers'
     uid     => 5003,
     group   => 'deploy',
     groups  => 'sudo',
+    password  => '$1$vgmT9S6z$wHzZUnKjb0po7ObiPE9kz.',
     mail    => 'deployment@example.com.au'
   }
