@@ -14,11 +14,6 @@ def prompt_with_default(var, default)
   set var, default if eval("#{var.to_s}.empty?")
 end
  
-
-
-
-
-
 namespace :puppet do
 
 	desc "prep server for puppet run - git clone etc"
@@ -39,11 +34,16 @@ namespace :puppet do
 		run "puppet --verbose /opt/puppet/init.pp --modulepath=/opt/puppet/modules #{options}"
 	end
 
+	desc "cleanup server - remove puppet and other files used during deployment"
+	task :clean, :host => host do
+		#TODO: add in a cleanup task
+	end
+
 end
 
 
 desc "deploy html site to linode - Params: HOST"
 task :deploy, :hosts => host do
   prompt_with_default(:domain, "devops.lunix.com.au")
-	run "cp -a /opt/html/ /var/www/#{domain}/"
+	run "cd /opt/html/ && cp -a . /var/www/#{domain}/"
 end

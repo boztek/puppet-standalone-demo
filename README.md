@@ -15,9 +15,10 @@ I can then also test that my site is deployed.
     git clone git://github.com/aussielunix/puppet-standalone-demo.git
     cd puppet-standalone-demo
     gem install capistrano
-    cap  puppet:prep HOST="173.255.200.9"
-    puppet:go HOST="173.255.200.9" OPTIONS="--noop"
-    puppet:go HOST="173.255.200.9"
+    cap puppet:prep HOST="173.255.200.9"
+    cap puppet:go HOST="173.255.200.9" OPTIONS="--noop"
+    cap puppet:go HOST="173.255.200.9"
+    cap deploy HOST="173.255.200.9" (you'll be asked for the domain of the vhost)
 
 
 
