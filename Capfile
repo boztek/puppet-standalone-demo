@@ -14,7 +14,6 @@ def prompt_with_default(var, default)
   set var, default if eval("#{var.to_s}.empty?")
 end
  
-prompt_with_default(:DOMAIN, "devops.lunix.com.au")
 
 
 
@@ -45,5 +44,6 @@ end
 
 desc "deploy html site to linode - Params: HOST"
 task :deploy, :hosts => host do
-	run "cp -a /opt/html/ /var/www/#{DOMAIN}/"
+  prompt_with_default(:domain, "devops.lunix.com.au")
+	run "cp -a /opt/html/ /var/www/#{domain}/"
 end
