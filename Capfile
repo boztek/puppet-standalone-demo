@@ -7,6 +7,19 @@ default_run_options[:pty] = true
 host = ENV['HOST']
 host ||= 'puppet-ubuntu01'
 
+def prompt_with_default(var, default)
+  set(var) do
+    Capistrano::CLI.ui.ask "#{var} [#{default}] : "
+  end
+  set var, default if eval("#{var.to_s}.empty?")
+end
+ 
+prompt_with_default(:DOMAIN, "devops.lunix.com.au")
+
+
+
+
+
 namespace :puppet do
 
 	desc "prep server for puppet run - git clone etc"
@@ -32,4 +45,5 @@ end
 
 desc "deploy html site to linode - Params: HOST"
 task :deploy, :hosts => host do
+	run "cp -a /opt/html/ /var/www/#{DOMAIN}/"
 end

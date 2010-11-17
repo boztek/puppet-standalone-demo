@@ -2,7 +2,7 @@
 ##############################################################
 # @filename : nodes.pp
 # @created : Mon, 07 Jun 2010 16:16:01 +1000
-# @last changed: Sat 13 Nov 2010 21:41:16 EST
+# @last changed: Wed 17 Nov 2010 17:46:03 EST
 # @author : Mick Pollard <aussielunix@gmail.com>
 ##############################################################
 #
@@ -20,7 +20,7 @@ node "default" {
   include postfix
   include apache2::common
 
-  apache2::site { "glenlivet.lunix.lan": 
+  apache2::site { "devops.lunix.com.au": 
    ensure => "present",
    webmaster => "webmaster@lunix.lan"
   }
