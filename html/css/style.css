@@ -1,0 +1,102 @@
+/****************************
+  COMMON STYLES
+****************************/ 
+
+body {
+	text-align: center;
+	padding: 0px;
+	margin: 0px auto;
+	background-color: #f6eeeb;
+	background-image: url('../images/background.jpg');
+	background-repeat: repeat-x;
+	height: 100%;
+}
+
+/****************************
+  BACKGROUND
+****************************/ 
+
+#middle_bg_1_wrapper {
+	width: 100%; text-align: center; margin: 0px auto; position: absolute; left: 0px;
+}
+
+#middle_bg_1 {
+	width: 970px; height: 605px; margin: 0px auto; top: 0px; 
+}
+
+#middle_bg_2 {
+	position: absolute; width: 100%; height: 815px; background-image: url('../images/middle_bg_2.jpg'); background-repeat: repeat-x; z-index:-1; background-position: center bottom; left: 0px;
+}
+
+#postcard_container {
+	position: absolute; margin: 0px auto; top:242px; width: 100%; height: 428px; left: 0px;
+}
+
+#postcard {
+	width: 608px; height: 428px; margin: 0px auto; background-image: url('../images/postcard.png');
+}
+
+
+/****************************
+  EMAIL ADDRESS
+****************************/ 
+
+.email {
+	float: left; width: 150px; height: 23px; padding-left: 30px; padding-top: 30px;
+}
+
+.email img {
+	border: 0px;
+}
+
+/****************************
+  ICONS
+****************************/ 
+
+.icons {
+	list-style: none; list-style-position: inside; float: right; width: 192px; height: 44px; margin-right: 35px; margin-top: 335px;
+}
+
+.icons li {
+	float: right; display: block; border: 0px; margin-left: 18px;
+}
+
+.icons img {
+	border: 0px;
+}
+
+/****************************
+  MAILING LIST
+****************************/ 
+
+
+.mailing_list_container  {
+	width:100%; height: 21px; position: absolute; text-align: center; margin: 0px auto; left: 0px; top: 540px;
+}
+
+.mailing_list {
+	position: relative; width: 608px; height: 21px; margin: 0px auto; padding-right: 70px;
+}
+
+#form_button_div {
+	float: right; width: 35px; height: 21px;
+}
+
+#form_input_div {
+	float: right; width: 142px; height: 21px;
+}
+
+
+#textinput {
+	border: 0px; width: 142px; height: 21px; background-image: url('../images/input_bg.jpg'); font-family: tahoma; font-size: 12px; color: #696969;
+}
+
+/****************************
+  COUNTER
+****************************/ 
+
+#countdown {
+	text-align: left; position: relative; width: 320px; height: 30px; float:left; margin: 0px; left: 40px; top: 260px; font-size: 20px; color: #696969; font-family: arial; font-weight: normal;
+	-webkit-transform: rotate(-2deg); -moz-transform: rotate(-2deg);
+}
+
