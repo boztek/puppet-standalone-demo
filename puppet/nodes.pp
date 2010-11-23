@@ -2,7 +2,7 @@
 ##############################################################
 # @filename : nodes.pp
 # @created : Mon, 07 Jun 2010 16:16:01 +1000
-# @last changed: Wed 17 Nov 2010 17:46:03 EST
+# @last changed: Tue 23 Nov 2010 23:18:39 EST
 # @author : Mick Pollard <aussielunix@gmail.com>
 ##############################################################
 #
@@ -10,15 +10,7 @@
 node "default" {
   $mailserver_dest_hosts = "localhost"
   $mailserver_networks = "localhost"
-
-  include motd
-  include root_mail
-  include sudo
-  include ssh
-  include sysstat
-  include git
-  include postfix
-  include apache2::common
+  include web
 
   apache2::site { "devops.lunix.com.au": 
    ensure => "present",
@@ -29,8 +21,4 @@ node "default" {
    ensure => "absent",
   }
 
-  realize(Group['devop'])
-  realize(Group['deploy'])
-  realize(Ssh_user['deploy'])
-  realize(Ssh_user['lunix'])  
 }
