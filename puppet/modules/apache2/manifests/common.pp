@@ -2,14 +2,14 @@
 ##############################################################
 # @filename : common.pp
 # @created : Thu, 28 Oct 2010 14:54:55 +1100
-# @last changed: Sat 13 Nov 2010 19:37:12 EST
+# @last changed: Sat 01 Jan 2011 15:16:12 EST
 # @author : Mick Pollard <aussielunix@gmail.com>
 ##############################################################
 #
 # This class installs the apache2 service
 # this is a Ubuntu 10.04(Lucid) LTS compatable (e.g. apache 2.2) manifest.
 class apache2::common {
-  package{ [apache2, apache2-threaded-dev]: 
+  package{ [apache2, apache2-mpm-prefork]: 
     ensure => installed 
   }
 
