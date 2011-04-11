@@ -39,5 +39,5 @@ import 'sshusers'
     group   => 'deploy',
     groups  => 'sudo',
     password  => '$1$vgmT9S6z$wHzZUnKjb0po7ObiPE9kz.',
-    mail    => 'deployment@example.com.au'
+    mail    => 'email+deploy@boris.com.au'
   }

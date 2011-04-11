@@ -30,7 +30,7 @@ class root_mail {
 
   mailalias { "rootalias":
     ensure    => present,
-    recipient => 'aussielunix@gmail.com',
+    recipient => 'email@boris.com.au',
     name      => 'root',
     notify    => Exec['newaliases']
   }
