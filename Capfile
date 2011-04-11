@@ -19,7 +19,7 @@ namespace :puppet do
   task :prep, :hosts => host do
     options = ENV['options'] || ENV['OPTIONS']
     sudo "apt-get install -y  git-core puppet puppet-common"
-    sudo "git clone git://github.com/aussielunix/puppet-standalone-demo.git /opt/"
+    sudo "git clone -b boris.com.au git://github.com/boztek/puppet-standalone-demo.git /opt/"
   end
 
   desc "update puppet repos from github"
