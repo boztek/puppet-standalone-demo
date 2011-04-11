@@ -11,8 +11,8 @@ node "default" {
   $mailserver_dest_hosts = "localhost"
   $mailserver_networks = "localhost"
 
-  include standardbuild
-  #include web
+  #include standardbuild
+  include web
 
   #apache2::site { "boris.com.au": 
   # ensure => "present",
