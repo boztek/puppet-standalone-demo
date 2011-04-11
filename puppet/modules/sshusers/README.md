@@ -2,7 +2,7 @@
 
 ** Only tested on CentOS & Ubuntu **
 
-This is just a define statement used to enable the declaratoin of virtual users.  
+This is just a define statement used to enable the declaration of virtual users.  
 It allows the:  
 
 * Setup local accounts with a given public key to connect to them.  
