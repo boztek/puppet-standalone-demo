@@ -12,9 +12,9 @@ node "default" {
   $mailserver_networks = "localhost"
   include web
 
-  apache2::site { "devops.lunix.com.au": 
+  apache2::site { "boris.com.au": 
    ensure => "present",
-   webmaster => "webmaster@lunix.lan"
+   webmaster => "email@boris.com.au"
   }
 
   apache2::site { "default": 

@@ -19,7 +19,7 @@ class standardbuild {
   include postfix
 
   realize(Group['devop'])
-  realize(Ssh_user['lunix'])  
+  realize(Ssh_user['boris'])  
 }
 
 class web inherits standardbuild {
