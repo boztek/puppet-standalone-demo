@@ -10,15 +10,15 @@
 node "default" {
   $mailserver_dest_hosts = "localhost"
   $mailserver_networks = "localhost"
-  include web
+  #include web
 
-  apache2::site { "boris.com.au": 
-   ensure => "present",
-   webmaster => "email@boris.com.au"
-  }
+  #apache2::site { "boris.com.au": 
+  # ensure => "present",
+  # webmaster => "email@boris.com.au"
+  #}
 
-  apache2::site { "default": 
-   ensure => "absent",
-  }
+  #apache2::site { "default": 
+  # ensure => "absent",
+  #}
 
 }

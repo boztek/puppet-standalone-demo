@@ -17,25 +17,17 @@ import 'sshusers'
   @group { "devop": gid => 5001 }
 
 
-  @ssh_user { "lunix":
-    comment => "Mick Pollard",
+  @ssh_user { "boris":
+    comment => "Boris Gordon",
     uid     => 5001,
     group   => 'devop',
     groups  => 'sudo',
     password  => '$1$vgmT9S6z$wHzZUnKjb0po7ObiPE9kz.',
-    mail    => 'mick@example.com.au'
-  }
-  @ssh_user { "dave":
-    comment => "dave smith",
-    uid     => 5002,
-    group   => 'devop',
-    groups  => 'sudo',
-    password  => '$1$vgmT9S6z$wHzZUnKjb0po7ObiPE9kz.',
-    mail    => 'dave@example.com.au'
+    mail    => 'email@boris.com.au'
   }
   @ssh_user { "deploy":
     comment => "application deployment user",
-    uid     => 5003,
+    uid     => 5002,
     group   => 'deploy',
     groups  => 'sudo',
     password  => '$1$vgmT9S6z$wHzZUnKjb0po7ObiPE9kz.',
