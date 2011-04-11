@@ -16,7 +16,7 @@
 # ``assumes package was installed via kickstart``
 #
 class ssh {
-  $permitrootlogin = 'yes'
+  $permitrootlogin = 'no'
 
   file { "/etc/ssh/sshd_config" :
     notify  => Service['ssh'],
