@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-set :user, 'boris'
+set :user, 'root'
 set :ssh_options, { :forward_agent => true }
 default_run_options[:pty] = true
 
