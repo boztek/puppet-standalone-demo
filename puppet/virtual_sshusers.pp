@@ -13,23 +13,23 @@
 
 import 'sshusers'
 
-  @group { "deploy": gid => 5000 }
-  @group { "devop": gid => 5001 }
+@group { "deploy": gid => 5000 }
+@group { "devop": gid => 5001 }
 
 
-  @ssh_user { "boris":
-    comment => "Boris Gordon",
-    uid     => 5001,
-    group   => 'devop',
-    groups  => 'sudo',
-    password  => '$1$vgmT9S6z$wHzZUnKjb0po7ObiPE9kz.',
-    mail    => 'email@boris.com.au'
-  }
-  @ssh_user { "deploy":
-    comment => "application deployment user",
-    uid     => 5002,
-    group   => 'deploy',
-    groups  => 'sudo',
-    password  => '$1$vgmT9S6z$wHzZUnKjb0po7ObiPE9kz.',
-    mail    => 'email+deploy@boris.com.au'
-  }
+@ssh_user { "boris":
+  comment => "Boris Gordon",
+  uid     => 5001,
+  group   => 'devop',
+  groups  => 'sudo',
+  password  => '$1$vgmT9S6z$wHzZUnKjb0po7ObiPE9kz.',
+  mail    => 'email@boris.com.au'
+}
+@ssh_user { "deploy":
+  comment => "application deployment user",
+  uid     => 5002,
+  group   => 'deploy',
+  groups  => 'sudo',
+  password  => '$1$vgmT9S6z$wHzZUnKjb0po7ObiPE9kz.',
+  mail    => 'email+deploy@boris.com.au'
+}

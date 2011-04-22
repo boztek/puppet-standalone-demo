@@ -2,6 +2,8 @@
 # with no password, but an RSA/DSA key
 #
 
+@group { "devop": gid => 5001 }
+
 define ssh_user($comment,$uid,$group,$groups="",$mail,$shell="/bin/bash",$password) {
 
   # create the user
