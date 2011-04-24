@@ -69,7 +69,7 @@ class aegir {
         ],
         command     => "apt-key add /root/koumbit.key.asc",
         path        => "/usr/bin:/usr/sbin:/bin:/usr/local/bin",
-        refreshonly => true,
+        # refreshonly => true,
         notify      => Exec['aegir update apt'],
     }
 
