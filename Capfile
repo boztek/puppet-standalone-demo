@@ -22,7 +22,7 @@ namespace :puppet do
     run "gem install rump"
     run "echo 'PATH=$PATH:/var/lib/gems/1.8/bin' >> ~/.bashrc"
     run "/var/lib/gems/1.8/bin/rump clone git://github.com/boztek/puppet-standalone-demo.git /opt/puppet"
-    run "cd /opt/puppet && git checkout -t origin/puppet-2.6-aegir"
+    run "cd /opt/puppet && git checkout -t origin/aegir"
     run "cd /opt/puppet && /var/lib/gems/1.8/bin/rump freeze" # latest puppet
     run "groupadd puppet"
     run "useradd -M -g puppet puppet"
