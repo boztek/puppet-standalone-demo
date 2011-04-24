@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 
-set :user, 'mick'
+set :user, 'root'
 set :ssh_options, { :forward_agent => true }
 default_run_options[:pty] = true
 
 host = ENV['HOST']
-host ||= 'puppet-ubuntu01'
+host ||= 'hostmaster'
 
 def prompt_with_default(var, default)
   set(var) do
@@ -18,20 +18,26 @@ namespace :puppet do
   desc "prep server for puppet run - git clone etc"
   task :prep, :hosts => host do
     options = ENV['options'] || ENV['OPTIONS']
-    sudo "apt-get install -y  git-core puppet puppet-common"
-    sudo "git clone git://github.com/aussielunix/puppet-standalone-demo.git /opt/"
+    run "apt-get install -y  git-core ruby libruby libopenssl-ruby libxmlrpc-ruby rubygems"
+    run "gem install rump"
+    run "echo 'PATH=$PATH:/var/lib/gems/1.8/bin' >> ~/.bashrc"
+    run "/var/lib/gems/1.8/bin/rump clone git://github.com/boztek/puppet-standalone-demo.git /opt/puppet"
+    run "cd /opt/puppet && git checkout -t origin/puppet-2.6-aegir"
+    run "cd /opt/puppet && /var/lib/gems/1.8/bin/rump freeze" # latest puppet
+    run "groupadd puppet"
+    run "useradd -M -g puppet puppet"
   end
 
   desc "update puppet repos from github"
   task :up, :hosts => host do
     options = ENV['options'] || ENV['OPTIONS']
-    run "cd /opt/ && #{sudo} git pull"
+    run "cd /opt/puppet && #{sudo} git pull"
   end
 
   desc "runs puppet on remote host - Params:  HOST OPTIONS"
   task :go, :hosts => host do
     options = ENV['options'] || ENV['OPTIONS']
-    run "#{sudo} puppet --verbose /opt/puppet/init.pp --modulepath=/opt/puppet/modules #{options}"
+    run "cd /opt/puppet && #{sudo} /var/lib/gems/1.8/bin/rump go #{options}"
   end
 
   desc "cleanup server - remove puppet and other files used during deployment"
