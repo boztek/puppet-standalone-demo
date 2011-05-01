@@ -30,10 +30,7 @@ class php {
 
     service { 'apache2':
         ensure    => running,
-        require   => [
-            Package['apache2'],
-            Package['libapache2-mod-php5'],
-        ],
+        require   => Package['libapache2-mod-php5'],
         # subscribe => Exec['mod_php5'],
     }
 
