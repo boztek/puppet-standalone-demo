@@ -20,9 +20,9 @@
 # Class: mysql
 #
 #
-class mysql {
+class mysql($root_password="changeme") {
 
-    $mysql_root_password = "123456789"
+    $mysql_root_password = $root_password
 
     file { '/root/mysql-server.seed':
         # source => "/opt/puppet/modules/mysql/files/mysql-server.seed",
