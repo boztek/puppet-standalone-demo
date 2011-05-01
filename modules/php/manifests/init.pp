@@ -68,6 +68,11 @@ class php {
         require => Package['php5'],
         notify  => Service['apache2'],
     }
+    
+    file { '/etc/php5/conf.d/mcrypt.ini':
+        ensures => file,
+        content => "extension=mcrypt.so\n",
+    }
 }
 
 # (end)
