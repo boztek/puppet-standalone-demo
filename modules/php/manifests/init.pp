@@ -70,7 +70,7 @@ class php {
     }
     
     file { '/etc/php5/conf.d/mcrypt.ini':
-        ensures => file,
+        ensure  => file,
         content => "extension=mcrypt.so\n",
     }
 }
