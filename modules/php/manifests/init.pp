@@ -26,14 +26,51 @@ class php {
         ensure => installed,
     }
 
-    # file { "/etc/php5/":
-    #     ensure => file,
-    #     
-    # }
+    file { "/etc/php5/apache2/php.ini":
+        ensure => file,
+        
+    }
     
+    # mod_php
+
     service { 'apache2':
+        ensure    => running,
+        require   => [
+            Package['apache2'],
+            Package['libapache2-mod-php5'],
+        ],
+        # subscribe => Exec['mod_php5'],
+    }
+
+    exec { 'mod_php5':
+        command => '/usr/sbin/a2enmod php5',
+        creates => [
+            '/etc/apache2/mods-enabled/php5.conf',
+            '/etc/apache2/mods-enabled/php5.load',
+        ],
         require => Package['libapache2-mod-php5'],
-        ensure  => running,
+        notify  => Service['apache2'],
+    }
+
+    # PHP configuration
+    
+    file { '/etc/php5/cli/php.ini':
+        ensure  => file,
+        content => template('php/php.ini.erb'),
+        owner   => root,
+        group   => root,
+        mode    => 644,
+        require => Package['php5-cli'],
+    }
+    
+    file { '/etc/php5/apache2/php.ini':
+        ensure  => file,
+        content => template('php/php.ini.erb'),
+        owner   => root,
+        group   => root,
+        mode    => 644,
+        require => Package['php5'],
+        notify  => Service['apache2'],
     }
 }
 
