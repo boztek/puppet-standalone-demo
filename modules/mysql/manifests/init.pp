@@ -22,6 +22,8 @@
 #
 class mysql {
 
+    $mysql_root_password = "123456789"
+
     file { '/root/mysql-server.seed':
         # source => "/opt/puppet/modules/mysql/files/mysql-server.seed",
         content => template('mysql/mysql-server.seed.erb'),
