@@ -26,12 +26,7 @@ class php {
         ensure => installed,
     }
 
-    file { "/etc/php5/apache2/php.ini":
-        ensure => file,
-        
-    }
-    
-    # mod_php
+   # mod_php
 
     service { 'apache2':
         ensure    => running,
