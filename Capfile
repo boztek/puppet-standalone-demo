@@ -6,6 +6,9 @@ default_run_options[:pty] = true
 
 host = ENV['HOST']
 host ||= 'hostmaster'
+db_root = ENV['DB_ROOT']
+db_root ||= 'changeme'
+
 # hostname = ENV['HOSTNAME']
 # domain = ENV['DOMAIN']
 
@@ -39,7 +42,7 @@ namespace :puppet do
   desc "runs puppet on remote host - Params:  HOST OPTIONS"
   task :go, :hosts => host do
     options = ENV['options'] || ENV['OPTIONS']
-    run "cd /opt/puppet && #{sudo} /var/lib/gems/1.8/bin/rump go #{options}"
+    run "cd /opt/puppet && #{sudo} FACTER_db_root='#{db_root}' /var/lib/gems/1.8/bin/rump go #{options}"
   end
 
   desc "cleanup server - remove puppet and other files used during deployment"

@@ -9,7 +9,7 @@ class d6 {
 
 class d7 {
     include php
-    class { mysql: root_password => "123456789" }
+    class { mysql: root_password => $db_root } # facter
 }
 
 node "d6.boztek.net" {
