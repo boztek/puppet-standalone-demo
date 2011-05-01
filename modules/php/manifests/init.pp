@@ -32,7 +32,8 @@ class php {
     # }
     
     service { 'apache2':
-        ensure => present,
+        require => Package['libapache2-mod-php5'],
+        ensure  => running,
     }
 }
 
