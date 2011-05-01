@@ -23,7 +23,8 @@
 class mysql {
 
     file { '/root/mysql-server.seed':
-        source => "/opt/puppet/modules/mysql/files/mysql-server.seed",
+        # source => "/opt/puppet/modules/mysql/files/mysql-server.seed",
+        content => template('mysql/mysql-server.seed.erb'),
         mode => 0600,
         owner => root,
         group => root

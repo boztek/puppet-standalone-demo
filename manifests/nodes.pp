@@ -10,7 +10,7 @@ class d6 {
 
 class d7 {
     include php
-    # include mysql
+    include mysql
 }
 
 node "d6.boztek.net" {
