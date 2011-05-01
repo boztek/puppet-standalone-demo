@@ -22,7 +22,7 @@
 #
 class php {
     # resources
-    package { ['php', 'php-cli', 'libapache2-mod-php5', 'php5-gd']:
+    package { ['php5', 'php5-cli', 'libapache2-mod-php5', 'php5-gd']:
         ensure => installed,
     }
 
