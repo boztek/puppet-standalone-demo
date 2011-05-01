@@ -18,3 +18,7 @@ node "d6.boztek.net" {
 
 node "d7.boztek.net" {
 }
+
+node "hostmaster.localdomain" {
+    include d7
+}
